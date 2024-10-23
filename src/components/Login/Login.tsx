@@ -11,14 +11,7 @@ function Login( { onToggleModal }: LoginProps) {
     <main className={styles.loginContainer}>
       <div className={styles.loginDialogBox}>
         <svg className={styles.padlock} width="160" height="240">
-          <image
-            href={padlock}
-            x='0'
-            y='0'
-            height='240'
-            width='160'
-          >
-          </image>
+          <image href={padlock} x='0' y='0' height='240' width='160' />
         </svg>
         <div className={styles.notLoggedIn}>
           <h1>Not Logged In</h1>

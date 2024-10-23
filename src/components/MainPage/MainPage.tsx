@@ -14,7 +14,6 @@ function MainPage() {
   const [selectedSessionEvents, setSelectedSessionEvents] = React.useState<any[]>([])
 
   const handleSessionSelect = async function(session: Session) {
-    console.log('handle session select called')
     setSelectedSession(session)
     const events = await fetchSessionEvents(session);
     setSelectedSessionEvents(events)
@@ -22,8 +21,6 @@ function MainPage() {
 
   const fetchSessionEvents = async function(session: Session) {
     try {
-      console.log(session.file_name)
-      // const response = await axios.get(`https://conduit.jjjones.dev/api/events/dcdd34b7-d045-45d6-8ac8-b88e83b0a5f3-2024-10-23T14:48:58.238Z.txt`);
       const response = await axios.get(`https://conduit.jjjones.dev/api/events/${session.file_name}`);
       setSelectedSession(JSON.parse(response.data));
     } catch (error) {

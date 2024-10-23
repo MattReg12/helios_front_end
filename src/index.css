@@ -13,6 +13,7 @@ html, body {
   --providence-black: #242424;
   --providence-red: hsl(360, 88%, 66%);
   --providence-white: #FAFAFA;
+  --providence-light-red: rgb(254, 224, 224);
 
 
   /* color-scheme: light dark; */
