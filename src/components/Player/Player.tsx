@@ -1,10 +1,9 @@
 import React from "react";
 import rrwebPlayer from "rrweb-player";
 import styles from './Player.module.css'
-import { Session } from "../../Types";
 
 interface PlayerProps {
-  session: Session | string
+  session: any[]
 }
 
 const Player = ({ session }: PlayerProps) => {
@@ -13,7 +12,7 @@ const Player = ({ session }: PlayerProps) => {
     let playerInstance: any;
 
     const initializeWebPlayer = function() {
-      if (playerRoot !== null && session) {
+      if (playerRoot !== null && session.length > 1) {
         try {
           playerInstance = new rrwebPlayer({
             target: playerRoot,
@@ -28,8 +27,6 @@ const Player = ({ session }: PlayerProps) => {
         } catch (error) {
           console.log('Error initializing web player:', error);
         }
-      } else {
-        console.log('Web player root not found. Unable to load player');
       }
     }
 
