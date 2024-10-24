@@ -15,16 +15,20 @@ function SessionSidebar( { sessions, onSessionSelect } : SessionSidebarProps) {
   const [showSortDropdown, setShowSortDropdown] = React.useState(false)
   const [showFilterPopover, setShowFilterPopover] = React.useState(false)
 
+  const handleSortClick = function() {
+    setShowSortDropdown(true)
+  }
+
   return (
     <div className={styles.sidebarMain}>
       <div className={styles.sidebarHeader}>
-        <button className={styles.sidebarButton}>
+        <button onClick={handleSortClick} className={styles.sidebarButton}>
           Sort
           <svg width={30} height={30} xmlns="http://www.w3.org/2000/svg">
             <image href={down} x='2' y='6'height='20'width='20' />
           </svg>
         </button>
-        {/* <SortDropdown /> */}
+        {showSortDropdown && <SortDropdown />}
         <button className={styles.sidebarButton}>
           Filter
           <svg width={30} height={30} xmlns="http://www.w3.org/2000/svg">

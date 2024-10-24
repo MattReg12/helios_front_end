@@ -19,6 +19,7 @@ const Player = ({ session }: PlayerProps) => {
             target: playerRoot,
             props: {
               events: session,
+              autoPlay: false,
               mouseTail: {
                 strokeStyle: "#ff842d",
               },

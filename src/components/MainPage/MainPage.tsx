@@ -39,14 +39,13 @@ function MainPage() {
       }
     }
 
-    // fetchSingleSession();
     fetchSessions();
   }, [])
 
   return (
     <div className={styles.mainPageWrapper}>
       <div className={styles.headerContainer}>
-        <Header />
+        <Header project='Providence'/>
       </div>
       <div className={styles.sidebar}>
         <SessionSidebar onSessionSelect={handleSessionSelect} sessions={allSessions}/>
