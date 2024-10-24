@@ -17,8 +17,10 @@ const SortDropdown = React.forwardRef<HTMLDivElement, SortDropdownProp>(( {onClo
   return (
     <div ref={ref} className={styles.dropdownContainer}>
       <ul>
-        <li>Sort Ascending ↑</li>
-        <li>Sort Descending ↓</li>
+        <li>Date Ascending ↑</li>
+        <li>Data Descending ↓</li>
+        <li>Sentiment Ascending ↑</li>
+        <li>Sentiment Descending ↓</li>
       </ul>
     </div>
   );

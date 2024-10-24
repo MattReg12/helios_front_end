@@ -7,9 +7,26 @@ interface FilterPopoverProp {
 
 const FilterPopover = React.forwardRef<HTMLDivElement, FilterPopoverProp>(( {onClosingClick}, ref) => {
   const [radioChoice, setRadioChoice] = React.useState<null | string>(null)
+  const [dayRange, setDayRange] = React.useState<number | string>('')
 
-  const handleRadioSelection = function(e) {
+  const handleRadioSelection = function(e: React.ChangeEvent<HTMLInputElement>) {
     setRadioChoice(e.target.value)
+  }
+
+  const handleFilter = function(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    if (radioChoice) {
+      alert('filtering')
+    }
+  }
+
+  const handleDayRangeInput = function(e: React.ChangeEvent<HTMLInputElement>) {
+    const input = parseInt(e.target.value)
+    if (!isNaN(input)) {
+      setDayRange(e.target.value)
+    } else {
+      setDayRange('')
+    }
   }
 
   React.useEffect(() => {
@@ -22,7 +39,7 @@ const FilterPopover = React.forwardRef<HTMLDivElement, FilterPopoverProp>(( {onC
 
   return (
     <div ref={ref} className={styles.popoverContainer}>
-      <form>
+      <form onSubmit={handleFilter}>
         <fieldset>
           <input
             type="radio"
@@ -52,7 +69,11 @@ const FilterPopover = React.forwardRef<HTMLDivElement, FilterPopoverProp>(( {onC
             checked={radioChoice === 'range'}
             onChange={handleRadioSelection}
           />
-          <label htmlFor="range">Last<input min='0'max='30' className={styles.numberInput}type='number'></input>Days</label>
+          <label htmlFor="range">Last
+            <input value={dayRange} onChange={handleDayRangeInput} min='0'max='30' className={styles.numberInput}type='number'></input>
+            Days
+          </label>
+          <button type='submit'>Chips Ahoy!</button>
         </fieldset>
       </form>
     </div>
